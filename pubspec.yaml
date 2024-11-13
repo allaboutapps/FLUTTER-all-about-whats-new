@@ -22,8 +22,14 @@ dependencies:
   shared_preferences: ^2.2.2
   package_info_plus: ^8.0.2
   flutter_animate: ^4.5.0
-
+  clock: ^1.1.1
 
 dev_dependencies:
+  integration_test:
+    sdk: flutter
+  flutter_test:
+    sdk: flutter
+  flutter_driver:
+    sdk: flutter
   build_runner: any
   go_router_builder: ^2.3.4

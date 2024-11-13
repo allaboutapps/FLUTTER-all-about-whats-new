@@ -1,4 +1,3 @@
-import 'package:all_about_whats_new/app/whats_new_definition.dart';
 import 'package:all_about_whats_new/app/whats_new_service.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

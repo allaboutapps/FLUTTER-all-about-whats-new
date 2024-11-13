@@ -1,0 +1,48 @@
+{
+    "whatsNewId": 1,
+    "minVersionCode": 1,
+    "maxVersionCode": 2,
+    "validFrom": "2024-11-12T00:00:00.000Z",
+    "validTo": "2024-11-15T00:00:00.000Z",
+    "content": {
+        "title": "blog_title",
+        "buttonTitle": "general_action_continue",
+        "entries": [
+            {
+                "title": "blog_feedback_question",
+                "description": "buy_sensor_apple_watch_info",
+                "materialIcon": 59658
+            },
+            {
+                "title": "blog_feedback_question",
+                "description": "buy_sensor_apple_watch_info",
+                "materialIcon": 59675
+            },
+            {
+                "title": "blog_feedback_question",
+                "description": "buy_sensor_apple_watch_info",
+                "materialIcon": 59675
+            },
+            {
+                "title": "blog_feedback_question",
+                "description": "buy_sensor_apple_watch_info",
+                "materialIcon": 59675
+            },
+            {
+                "title": "blog_feedback_question",
+                "description": "buy_sensor_apple_watch_info",
+                "materialIcon": 59675
+            },
+            {
+                "title": "blog_feedback_question",
+                "description": "buy_sensor_apple_watch_info",
+                "materialIcon": 59675
+            },
+            {
+                "title": "blog_feedback_question",
+                "description": "buy_sensor_apple_watch_info",
+                "materialIcon": 59675
+            }
+        ]
+    }
+}

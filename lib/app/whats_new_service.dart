@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:all_about_whats_new/app/whats_new_definition.dart';
+import 'package:clock/clock.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -10,56 +11,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 part 'whats_new_screen.dart';
 
-final whatsNewDefinitionJson = '''
-{
-  "whatsNewId": 1,
-  "minVersionCode": 1,
-  "maxVersionCode": 2,
-  "content":{
-    "title": "blog_title",
-    "buttonTitle": "general_action_continue",
-    "entries": [
-      {
-        "title": "blog_feedback_question",
-        "description": "buy_sensor_apple_watch_info",
-        "materialIcon": 59658
-      },
-      {
-        "title": "blog_feedback_question",
-        "description": "buy_sensor_apple_watch_info",
-        "materialIcon": 59675
-      },
-      {
-        "title": "blog_feedback_question",
-        "description": "buy_sensor_apple_watch_info",
-        "materialIcon": 59675
-      },
-      {
-        "title": "blog_feedback_question",
-        "description": "buy_sensor_apple_watch_info",
-        "materialIcon": 59675
-      },
-      {
-        "title": "blog_feedback_question",
-        "description": "buy_sensor_apple_watch_info",
-        "materialIcon": 59675
-      },
-      {
-        "title": "blog_feedback_question",
-        "description": "buy_sensor_apple_watch_info",
-        "materialIcon": 59675
-      },
-      {
-        "title": "blog_feedback_question",
-        "description": "buy_sensor_apple_watch_info",
-        "materialIcon": 59675
-      }
-    ]
-  }
-}
-
-''';
-
 const lastShownWhatsNew = 'lastShownWhatsNew';
 
 class WhatsNewService {
@@ -67,19 +18,25 @@ class WhatsNewService {
 
   static final WhatsNewService instance = WhatsNewService._();
 
+  WhatsNewDefinition? _whatsNewDefinition;
+
   Future<void> initWhatsNew({String? whatsNewDefinitionUrl}) async {
-    // if (whatsNewDefinitionUrl == null) {
-    //   return;
-    // }
+    if (whatsNewDefinitionUrl == null) {
+      return;
+    }
 
     try {
-      // final whatsNewDefinitionResponse = await http.get(Uri.parse(whatsNewDefinitionUrl)).timeout(const Duration(seconds: 2));
-      // final whatsNewDefinition = WhatsNewDefinition.fromJson(jsonDecode(whatsNewDefinitionResponse.body));
-      final whatsNewDefinition = WhatsNewDefinition.fromJson(jsonDecode(whatsNewDefinitionJson));
+      final whatsNewDefinitionResponse = await http.get(Uri.parse(whatsNewDefinitionUrl)).timeout(const Duration(seconds: 2));
+      final whatsNewDefinition = WhatsNewDefinition.fromJson(jsonDecode(whatsNewDefinitionResponse.body));
       _whatsNewDefinition = whatsNewDefinition;
     } catch (_) {
       return;
     }
+  }
+
+  @visibleForTesting
+  Future<void> initWhatsNewFromJson(String whatsNewDefinitionJson) async {
+    _whatsNewDefinition = WhatsNewDefinition.fromJson(jsonDecode(whatsNewDefinitionJson));
   }
 
   Future<bool> shouldShowWhatsNew() async {
@@ -96,7 +53,8 @@ class WhatsNewService {
       if (localVersionCode == null || lastShownWhatsNewId == _whatsNewDefinition!.whatsNewId) return false;
 
       if (_whatsNewDefinition!.validFrom != null && _whatsNewDefinition!.validTo != null) {
-        if (_whatsNewDefinition!.validFrom!.isAfter(DateTime.now()) || _whatsNewDefinition!.validTo!.isBefore(DateTime.now())) {
+        final currentDateTime = clock.now();
+        if (_whatsNewDefinition!.validFrom!.isAfter(currentDateTime) || _whatsNewDefinition!.validTo!.isBefore(currentDateTime)) {
           return false;
         }
       }
@@ -112,6 +70,4 @@ class WhatsNewService {
 
     return false;
   }
-
-  WhatsNewDefinition? _whatsNewDefinition;
 }
