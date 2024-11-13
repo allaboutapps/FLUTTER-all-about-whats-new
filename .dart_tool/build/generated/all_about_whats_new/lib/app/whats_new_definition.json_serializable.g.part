@@ -1,0 +1,58 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+WhatsNewDefinition _$WhatsNewDefinitionFromJson(Map<String, dynamic> json) =>
+    WhatsNewDefinition(
+      whatsNewId: (json['whatsNewId'] as num).toInt(),
+      minVersionCode: (json['minVersionCode'] as num).toInt(),
+      maxVersionCode: (json['maxVersionCode'] as num).toInt(),
+      validFrom: json['validFrom'] == null
+          ? null
+          : DateTime.parse(json['validFrom'] as String),
+      validTo: json['validTo'] == null
+          ? null
+          : DateTime.parse(json['validTo'] as String),
+      content:
+          WhatsNewContent.fromJson(json['content'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$WhatsNewDefinitionToJson(WhatsNewDefinition instance) =>
+    <String, dynamic>{
+      'whatsNewId': instance.whatsNewId,
+      'minVersionCode': instance.minVersionCode,
+      'maxVersionCode': instance.maxVersionCode,
+      'validFrom': instance.validFrom?.toIso8601String(),
+      'validTo': instance.validTo?.toIso8601String(),
+      'content': instance.content,
+    };
+
+WhatsNewContent _$WhatsNewContentFromJson(Map<String, dynamic> json) =>
+    WhatsNewContent(
+      entries: (json['entries'] as List<dynamic>)
+          .map((e) => WhatsNewEntry.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      title: json['title'] as String,
+      buttonTitle: json['buttonTitle'] as String,
+    );
+
+Map<String, dynamic> _$WhatsNewContentToJson(WhatsNewContent instance) =>
+    <String, dynamic>{
+      'entries': instance.entries,
+      'title': instance.title,
+      'buttonTitle': instance.buttonTitle,
+    };
+
+WhatsNewEntry _$WhatsNewEntryFromJson(Map<String, dynamic> json) =>
+    WhatsNewEntry(
+      title: json['title'] as String,
+      description: json['description'] as String,
+      materialIcon: (json['materialIcon'] as num).toInt(),
+    );
+
+Map<String, dynamic> _$WhatsNewEntryToJson(WhatsNewEntry instance) =>
+    <String, dynamic>{
+      'title': instance.title,
+      'description': instance.description,
+      'materialIcon': instance.materialIcon,
+    };
