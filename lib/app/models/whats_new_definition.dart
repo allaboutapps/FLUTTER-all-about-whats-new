@@ -29,8 +29,8 @@ class WhatsNewContent {
   WhatsNewContent({required this.entries, required this.title, required this.buttonTitle});
 
   final List<WhatsNewEntry> entries;
-  final String title;
-  final String buttonTitle;
+  final Map<String, String> title;
+  final Map<String, String> buttonTitle;
 
   factory WhatsNewContent.fromJson(Map<String, dynamic> json) => _$WhatsNewContentFromJson(json);
   Map<String, dynamic> toJson() => _$WhatsNewContentToJson(this);
@@ -78,8 +78,8 @@ class WhatsNewEntryBulletpoint extends WhatsNewEntry {
     required this.materialIcon,
   }) : super(type: WhatsNewEntryType.bulletpoint);
 
-  final String title;
-  final String description;
+  final Map<String, String> title;
+  final Map<String, String> description;
   final int materialIcon;
 
   factory WhatsNewEntryBulletpoint.fromJson(Map<String, dynamic> json) => _$WhatsNewEntryBulletpointFromJson(json);
@@ -100,7 +100,7 @@ class WhatsNewEntryImage extends WhatsNewEntry {
 class WhatsNewEntryMarkdown extends WhatsNewEntry {
   WhatsNewEntryMarkdown({required this.markdown}) : super(type: WhatsNewEntryType.markdown);
 
-  final String markdown;
+  final Map<String, String> markdown;
 
   factory WhatsNewEntryMarkdown.fromJson(Map<String, dynamic> json) => _$WhatsNewEntryMarkdownFromJson(json);
   Map<String, dynamic> toJson() => _$WhatsNewEntryMarkdownToJson(this);
@@ -111,7 +111,7 @@ class WhatsNewEntryLink extends WhatsNewEntry {
   WhatsNewEntryLink({required this.url, required this.title}) : super(type: WhatsNewEntryType.link);
 
   final String url;
-  final String title;
+  final Map<String, String> title;
 
   factory WhatsNewEntryLink.fromJson(Map<String, dynamic> json) => _$WhatsNewEntryLinkFromJson(json);
   Map<String, dynamic> toJson() => _$WhatsNewEntryLinkToJson(this);

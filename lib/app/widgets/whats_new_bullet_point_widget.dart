@@ -1,5 +1,5 @@
 import 'package:all_about_whats_new/app/models/whats_new_definition.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:all_about_whats_new/app/service/whats_new_service.dart';
 import 'package:flutter/material.dart';
 
 class WhatsNewBulletPointModel {
@@ -44,8 +44,8 @@ class WhatsNewBulletPoint extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(entry.title.tr(), style: model.titleTextStyle),
-              Text(entry.description.tr(), style: model.descriptionTextStyle),
+              Text(entry.title.tr(context), style: model.titleTextStyle),
+              Text(entry.description.tr(context), style: model.descriptionTextStyle),
             ],
           ),
         ),

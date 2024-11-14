@@ -1,5 +1,11 @@
 part of '../service/whats_new_service.dart';
 
+extension WhatsNewTranslatedText on Map<String, String> {
+  String tr(BuildContext context) {
+    return this[Localizations.localeOf(context).languageCode] ?? this['de'] ?? '';
+  }
+}
+
 class WhatsNewScreenModel {
   WhatsNewScreenModel({required this.bulletPointModel, required this.showModal});
 
@@ -18,7 +24,7 @@ class WhatsNewScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(whatsNewContent.title.tr()),
+        title: Text(whatsNewContent.title.tr(context)),
       ),
       body: SafeArea(
         child: Padding(
@@ -57,7 +63,7 @@ class WhatsNewScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
-                      child: Text(whatsNewContent.buttonTitle.tr()))
+                      child: Text(whatsNewContent.buttonTitle.tr(context)))
                   .animate()
                   .fade(duration: 1.seconds)
                   .move(

@@ -1,4 +1,5 @@
 import 'package:all_about_whats_new/app/models/whats_new_definition.dart';
+import 'package:all_about_whats_new/app/service/whats_new_service.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -13,6 +14,6 @@ class WhatsNewLink extends StatelessWidget {
         onPressed: () async {
           await launchUrlString(entry.url, mode: LaunchMode.externalApplication);
         },
-        child: Text(entry.title));
+        child: Text(entry.title.tr(context)));
   }
 }

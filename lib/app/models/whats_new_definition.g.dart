@@ -36,8 +36,8 @@ WhatsNewContent _$WhatsNewContentFromJson(Map<String, dynamic> json) =>
       entries: (json['entries'] as List<dynamic>)
           .map((e) => WhatsNewEntry.fromJson(e as Map<String, dynamic>))
           .toList(),
-      title: json['title'] as String,
-      buttonTitle: json['buttonTitle'] as String,
+      title: Map<String, String>.from(json['title'] as Map),
+      buttonTitle: Map<String, String>.from(json['buttonTitle'] as Map),
     );
 
 Map<String, dynamic> _$WhatsNewContentToJson(WhatsNewContent instance) =>
@@ -50,8 +50,8 @@ Map<String, dynamic> _$WhatsNewContentToJson(WhatsNewContent instance) =>
 WhatsNewEntryBulletpoint _$WhatsNewEntryBulletpointFromJson(
         Map<String, dynamic> json) =>
     WhatsNewEntryBulletpoint(
-      title: json['title'] as String,
-      description: json['description'] as String,
+      title: Map<String, String>.from(json['title'] as Map),
+      description: Map<String, String>.from(json['description'] as Map),
       materialIcon: (json['materialIcon'] as num).toInt(),
     );
 
@@ -76,7 +76,7 @@ Map<String, dynamic> _$WhatsNewEntryImageToJson(WhatsNewEntryImage instance) =>
 WhatsNewEntryMarkdown _$WhatsNewEntryMarkdownFromJson(
         Map<String, dynamic> json) =>
     WhatsNewEntryMarkdown(
-      markdown: json['markdown'] as String,
+      markdown: Map<String, String>.from(json['markdown'] as Map),
     );
 
 Map<String, dynamic> _$WhatsNewEntryMarkdownToJson(
@@ -88,7 +88,7 @@ Map<String, dynamic> _$WhatsNewEntryMarkdownToJson(
 WhatsNewEntryLink _$WhatsNewEntryLinkFromJson(Map<String, dynamic> json) =>
     WhatsNewEntryLink(
       url: json['url'] as String,
-      title: json['title'] as String,
+      title: Map<String, String>.from(json['title'] as Map),
     );
 
 Map<String, dynamic> _$WhatsNewEntryLinkToJson(WhatsNewEntryLink instance) =>
