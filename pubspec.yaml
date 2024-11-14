@@ -23,6 +23,7 @@ dependencies:
   package_info_plus: ^8.0.2
   flutter_animate: ^4.5.0
   clock: ^1.1.1
+  flutter_markdown: ^0.7.4+1
 
 dev_dependencies:
   integration_test:
