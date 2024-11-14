@@ -24,6 +24,7 @@ dependencies:
   flutter_animate: ^4.5.0
   clock: ^1.1.1
   flutter_markdown: ^0.7.4+1
+  url_launcher: ^6.2.2
 
 dev_dependencies:
   integration_test:

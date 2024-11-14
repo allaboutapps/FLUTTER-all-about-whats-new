@@ -36,7 +36,7 @@ class WhatsNewContent {
   Map<String, dynamic> toJson() => _$WhatsNewContentToJson(this);
 }
 
-enum WhatsNewEntryType { bulletpoint, image, markdown }
+enum WhatsNewEntryType { bulletpoint, image, markdown, link }
 
 abstract class WhatsNewEntry {
   WhatsNewEntry({required this.type});
@@ -52,6 +52,8 @@ abstract class WhatsNewEntry {
         return WhatsNewEntryImage.fromJson(json);
       case WhatsNewEntryType.markdown:
         return WhatsNewEntryMarkdown.fromJson(json);
+      case WhatsNewEntryType.link:
+        return WhatsNewEntryLink.fromJson(json);
     }
   }
   Map<String, dynamic> toJson() {
@@ -62,6 +64,8 @@ abstract class WhatsNewEntry {
         return (this as WhatsNewEntryImage).toJson();
       case WhatsNewEntryType.markdown:
         return (this as WhatsNewEntryMarkdown).toJson();
+      case WhatsNewEntryType.link:
+        return (this as WhatsNewEntryLink).toJson();
     }
   }
 }
@@ -100,4 +104,15 @@ class WhatsNewEntryMarkdown extends WhatsNewEntry {
 
   factory WhatsNewEntryMarkdown.fromJson(Map<String, dynamic> json) => _$WhatsNewEntryMarkdownFromJson(json);
   Map<String, dynamic> toJson() => _$WhatsNewEntryMarkdownToJson(this);
+}
+
+@JsonSerializable()
+class WhatsNewEntryLink extends WhatsNewEntry {
+  WhatsNewEntryLink({required this.url, required this.title}) : super(type: WhatsNewEntryType.link);
+
+  final String url;
+  final String title;
+
+  factory WhatsNewEntryLink.fromJson(Map<String, dynamic> json) => _$WhatsNewEntryLinkFromJson(json);
+  Map<String, dynamic> toJson() => _$WhatsNewEntryLinkToJson(this);
 }

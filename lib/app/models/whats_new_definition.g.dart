@@ -84,3 +84,15 @@ Map<String, dynamic> _$WhatsNewEntryMarkdownToJson(
     <String, dynamic>{
       'markdown': instance.markdown,
     };
+
+WhatsNewEntryLink _$WhatsNewEntryLinkFromJson(Map<String, dynamic> json) =>
+    WhatsNewEntryLink(
+      url: json['url'] as String,
+      title: json['title'] as String,
+    );
+
+Map<String, dynamic> _$WhatsNewEntryLinkToJson(WhatsNewEntryLink instance) =>
+    <String, dynamic>{
+      'url': instance.url,
+      'title': instance.title,
+    };

@@ -36,6 +36,7 @@ class WhatsNewScreen extends StatelessWidget {
                             WhatsNewBulletPoint(model: model.bulletPointModel, entry: entry as WhatsNewEntryBulletpoint),
                           WhatsNewEntryType.image => WhatsNewImage(entry: entry as WhatsNewEntryImage),
                           WhatsNewEntryType.markdown => WhatsNewMarkdown(entry: entry as WhatsNewEntryMarkdown),
+                          WhatsNewEntryType.link => WhatsNewLink(entry: entry as WhatsNewEntryLink),
                         }
                             .animate()
                             .move(
