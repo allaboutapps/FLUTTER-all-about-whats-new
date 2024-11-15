@@ -1,48 +1,100 @@
-{
-    "whatsNewId": 1,
-    "minVersionCode": 1,
-    "maxVersionCode": 2,
-    "validFrom": "2024-11-12T00:00:00.000Z",
-    "validTo": "2024-11-15T00:00:00.000Z",
-    "content": {
-        "title": "blog_title",
-        "buttonTitle": "general_action_continue",
-        "entries": [
-            {
-                "title": "blog_feedback_question",
-                "description": "buy_sensor_apple_watch_info",
-                "materialIcon": 59658
+[
+    {
+        "whatsNewId": 9,
+        "minVersionCode": 1,
+        "maxVersionCode": 2,
+        "content": {
+            "title": {
+                "de": "Deutsch",
+                "en": "English"
             },
-            {
-                "title": "blog_feedback_question",
-                "description": "buy_sensor_apple_watch_info",
-                "materialIcon": 59675
+            "buttonTitle": {
+                "de": "Weiter",
+                "en": "Continue"
             },
-            {
-                "title": "blog_feedback_question",
-                "description": "buy_sensor_apple_watch_info",
-                "materialIcon": 59675
+            "entries": [
+                {
+                    "type": "bulletpoint",
+                    "title": {
+                        "de": "Neues Feature 1",
+                        "en": "New Feature 1"
+                    },
+                    "description": {
+                        "de": "Beschreibung 1",
+                        "en": "Description 1"
+                    },
+                    "materialIcon": 59658
+                },
+                {
+                    "type": "markdown",
+                    "markdown": {
+                        "de": "# Markdown Syntax Anleitung\\n## Überschriften\\n# Dies ist eine Überschrift h1\\n## Dies ist eine Überschrift h2\\n###### Dies ist eine Überschrift h6\\n## Hervorhebung\\n*Dieser Text wird kursiv sein* \\n_Dies wird auch kursiv sein_\\n**Dieser Text wird fett sein**  \\n__Dies wird auch fett sein__\\n _Du **kannst** sie kombinieren_\\n## Listen\\n### Ungeordnet\\n* Punkt 1\\n* Punkt 2\\n* Punkt 2a\\n* Punkt 2b",
+                        "en": "# Markdown syntax guide\\n## Headers\\n# This is a Heading h1\\n## This is a Heading h2\\n###### This is a Heading h6\\n## Emphasis\\n*This text will be italic* \\n_This will also be italic_\\n**This text will be bold**  \\n__This will also be bold__\\n _You **can** combine them_\\n## Lists\\n### Unordered\\n* Item 1\\n* Item 2\\n* Item 2a\\n* Item 2b"
+                    }
+                },
+                {
+                    "type": "image",
+                    "imageUrl": "https://code.allaboutapps.at/images/logo.png"
+                },
+                {
+                    "type": "link",
+                    "title": {
+                        "de": "Google Link",
+                        "en": "Google Link"
+                    },
+                    "url": "https://www.google.com"
+                }
+            ]
+        }
+    },
+    {
+        "whatsNewId": 10,
+        "minVersionCode": 1,
+        "maxVersionCode": 2,
+        "validFrom": "2024-11-12T00:00:00.000Z",
+        "validTo": "2024-11-15T00:00:00.000Z",
+        "content": {
+            "title": {
+                "de": "Deutsch",
+                "en": "English"
             },
-            {
-                "title": "blog_feedback_question",
-                "description": "buy_sensor_apple_watch_info",
-                "materialIcon": 59675
+            "buttonTitle": {
+                "de": "Weiter",
+                "en": "Continue"
             },
-            {
-                "title": "blog_feedback_question",
-                "description": "buy_sensor_apple_watch_info",
-                "materialIcon": 59675
-            },
-            {
-                "title": "blog_feedback_question",
-                "description": "buy_sensor_apple_watch_info",
-                "materialIcon": 59675
-            },
-            {
-                "title": "blog_feedback_question",
-                "description": "buy_sensor_apple_watch_info",
-                "materialIcon": 59675
-            }
-        ]
+            "entries": [
+                {
+                    "type": "bulletpoint",
+                    "title": {
+                        "de": "Neues Feature 1",
+                        "en": "New Feature 1"
+                    },
+                    "description": {
+                        "de": "Beschreibung 1",
+                        "en": "Description 1"
+                    },
+                    "materialIcon": 59658
+                },
+                {
+                    "type": "markdown",
+                    "markdown": {
+                        "de": "# Markdown Syntax Anleitung\\n## Überschriften\\n# Dies ist eine Überschrift h1\\n## Dies ist eine Überschrift h2\\n###### Dies ist eine Überschrift h6\\n## Hervorhebung\\n*Dieser Text wird kursiv sein* \\n_Dies wird auch kursiv sein_\\n**Dieser Text wird fett sein**  \\n__Dies wird auch fett sein__\\n _Du **kannst** sie kombinieren_\\n## Listen\\n### Ungeordnet\\n* Punkt 1\\n* Punkt 2\\n* Punkt 2a\\n* Punkt 2b",
+                        "en": "# Markdown syntax guide\\n## Headers\\n# This is a Heading h1\\n## This is a Heading h2\\n###### This is a Heading h6\\n## Emphasis\\n*This text will be italic* \\n_This will also be italic_\\n**This text will be bold**  \\n__This will also be bold__\\n _You **can** combine them_\\n## Lists\\n### Unordered\\n* Item 1\\n* Item 2\\n* Item 2a\\n* Item 2b"
+                    }
+                },
+                {
+                    "type": "image",
+                    "imageUrl": "https://code.allaboutapps.at/images/logo.png"
+                },
+                {
+                    "type": "link",
+                    "title": {
+                        "de": "Google Link",
+                        "en": "Google Link"
+                    },
+                    "url": "https://www.google.com"
+                }
+            ]
+        }
     }
-}
+]

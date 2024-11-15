@@ -20,7 +20,7 @@ class WhatsNewScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final whatsNewContent = WhatsNewService.instance._whatsNewDefinition!.content;
+    final whatsNewContent = WhatsNewService.instance.currentWhatsNewDefinition.content;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -60,8 +60,12 @@ class WhatsNewScreen extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
+                      onPressed: () async {
+                        if (await WhatsNewService.instance.moveToNextWhatsNewIfPossible()) {
+                          WhatsNewRoute($extra: model).pushReplacement(context);
+                        } else {
+                          Navigator.of(context).pop();
+                        }
                       },
                       child: Text(whatsNewContent.buttonTitle.tr(context)))
                   .animate()

@@ -14,7 +14,14 @@ class WhatsNewRoute extends GoRouteData {
   @override
   Page<void> buildPage(BuildContext context, GoRouterState state) => $extra.showModal
       ? CupertinoSheetPage(
-          child: WhatsNewScreen(model: $extra),
+          child: WhatsNewScreen(
+            model: $extra,
+            key: UniqueKey(),
+          ),
         )
-      : MaterialPage(child: WhatsNewScreen(model: $extra));
+      : MaterialPage(
+          child: WhatsNewScreen(
+          model: $extra,
+          key: UniqueKey(),
+        ));
 }
