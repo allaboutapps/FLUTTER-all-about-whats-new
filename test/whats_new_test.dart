@@ -29,6 +29,7 @@ void main() {
 
     var shouldShow = await WhatsNewService.instance.shouldShowWhatsNew();
     expect(shouldShow, isTrue);
+    WhatsNewService.instance.currentWhatsNewDefinition;
 
     // should have a second one
     final canShowNext = await WhatsNewService.instance.moveToNextWhatsNewIfPossible();
@@ -36,6 +37,8 @@ void main() {
 
     final whatsNewDefinitionsCountAfterFirstShow = WhatsNewService.instance.whatsNewDefinitionsCount;
     expect(whatsNewDefinitionsCountAfterFirstShow, 1);
+
+    WhatsNewService.instance.currentWhatsNewDefinition;
 
     // should not have a third one
     final cannotShowNext = await WhatsNewService.instance.moveToNextWhatsNewIfPossible();
@@ -63,6 +66,7 @@ void main() {
 
     var initialWhatsNewDefinitionsCount = WhatsNewService.instance.whatsNewDefinitionsCount;
     expect(initialWhatsNewDefinitionsCount, 2);
+    WhatsNewService.instance.currentWhatsNewDefinition;
 
     var canShowNext = await WhatsNewService.instance.moveToNextWhatsNewIfPossible();
     expect(canShowNext, isTrue);
@@ -73,6 +77,8 @@ void main() {
 
     initialWhatsNewDefinitionsCount = WhatsNewService.instance.whatsNewDefinitionsCount;
     expect(initialWhatsNewDefinitionsCount, 1);
+
+    WhatsNewService.instance.currentWhatsNewDefinition;
 
     canShowNext = await WhatsNewService.instance.moveToNextWhatsNewIfPossible();
     expect(canShowNext, false);

@@ -61,14 +61,16 @@ class WhatsNewService {
 
   // In the beginning there has to be one
   // On every continue click as well if moveToNextWhatsNewIfPossible returns true
-  WhatsNewDefinition get currentWhatsNewDefinition => _whatsNewDefinitions!.first;
+  WhatsNewDefinition get currentWhatsNewDefinition {
+    final currentWhatsNewDefinition = _whatsNewDefinitions!.first;
+    unawaited(sharedPreferences.setInt(lastShownWhatsNew, currentWhatsNewDefinition.whatsNewId));
 
-  // When clicking on next moveToNextWhatsNewIfPossible evaluates if there is a next whats new definition and stores the currently shown whats new id
+    return currentWhatsNewDefinition;
+  }
+
+  // When clicking on next moveToNextWhatsNewIfPossible evaluates if there is a next whats new definition
   // It also removes the currently shown whats new definition from the list
   Future<bool> moveToNextWhatsNewIfPossible() async {
-    // Set currently shown whats new id
-    await sharedPreferences.setInt(lastShownWhatsNew, _whatsNewDefinitions!.first.whatsNewId);
-
     // Remove first whats new definition
     _whatsNewDefinitions?.removeAt(0);
 
