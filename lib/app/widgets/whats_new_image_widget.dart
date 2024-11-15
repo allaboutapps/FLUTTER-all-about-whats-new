@@ -7,12 +7,14 @@ class WhatsNewImage extends StatelessWidget {
   final WhatsNewEntryImage entry;
 
   @override
-  Widget build(BuildContext context) {
-    return Image.network(
-      entry.imageUrl,
-      fit: BoxFit.fitWidth,
-      errorBuilder: (context, error, stack) => const SizedBox.shrink(),
-      loadingBuilder: (context, child, loadingProgress) => loadingProgress == null ? child : const SizedBox.shrink(),
-    );
-  }
+  Widget build(BuildContext context) => Image.network(
+        entry.imageUrl,
+        fit: BoxFit.fitWidth,
+        errorBuilder: (context, error, stack) => const SizedBox.shrink(),
+        loadingBuilder: (context, child, loadingProgress) => loadingProgress == null
+            ? child
+            : const Center(
+                child: CircularProgressIndicator.adaptive(),
+              ),
+      );
 }
